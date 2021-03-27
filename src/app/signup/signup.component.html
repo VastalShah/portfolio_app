@@ -1,0 +1,39 @@
+<div class="container justify-content-center align-items-center">
+    <div class="form-row justify-content-center align-items-center shadow" style="padding: 20px;">
+        <form [formGroup]="userForm" (ngSubmit)="handleFormData()">
+
+            UserName: <br><input type="text" [ngClass]="{'invalid':
+            formSubmitted && formControls.UserName.errors}" class="form-control"
+            name="username" formControlName="UserName" />
+            
+            <span *ngIf="formSubmitted && formControls.UserName.errors">UserName
+            is required<br></span>
+
+            Email: <br><input type="text" [ngClass]="{'invalid': formSubmitted
+            && formControls.Email.errors}" class="form-control" name="username"
+            formControlName="Email"
+            (input)="handleEmail($event)" />
+            <span *ngIf="formSubmitted &&
+            formControls.Email.errors">Invalid Email<br></span>
+            
+            Password: <br><input type="password" [ngClass]="{'invalid':
+            formSubmitted && formControls.password.errors}" class="form-control"
+            name="username" formControlName="password"
+            (input)="handlePassword($event)" />
+            <span *ngIf="formSubmitted &&
+            formControls.password.errors">Minimun Length 6 required<br></span>
+            
+            Confirm Password: <br><input type="password" [ngClass]="{'invalid':
+            formSubmitted && formControls.confirmPassword.errors}"
+            class="form-control" name="username"
+            formControlName="confirmPassword"
+            (input)="handleConfirmPassword($event)" />
+            <span *ngIf="formSubmitted &&
+            formControls.confirmPassword.errors">Minimun Length 6 required<br></span>
+            
+            <div class="text-center">
+                <br> <button class="btn btn-primary" type="submit" name="submit">Signup</button>
+            </div>
+        </form>
+    </div>
+</div>

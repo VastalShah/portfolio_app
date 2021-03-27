@@ -1,0 +1,17 @@
+<div id="parent" class="container justify-content-center align-items-center">
+    <div class="form-row justify-content-center align-items-center shadow" style="padding: 20px;">
+        <form [formGroup]="userForm" (ngSubmit)="handleFormData()">
+            <label class="text-dark">Email:</label> <input type="text" [ngClass]="{'invalid': formSubmitted
+            && formControls.Email.errors}" class="form-control" name="username" formControlName="Email" (input)="handleEmail($event)"/>
+            <span *ngIf="formSubmitted && formControls.Email.errors">Invalid Email<br></span>
+
+            <label class="text-dark">Password:</label> <input type="password" [ngClass]="{'invalid': formSubmitted
+            && formControls.password.errors}" class="form-control" name="username" formControlName="password" (input)="handlePassword($event)"/>
+            <span *ngIf="formSubmitted && formControls.password.errors">Password length should be 6<br></span>
+            
+            <div class="text-center">
+                <br><button class="btn btn-primary" type="submit" name="submit">Signin</button>
+            </div>
+        </form>
+    </div>
+</div>
